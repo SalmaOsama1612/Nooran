@@ -7,10 +7,16 @@ RUN apt-get update && apt-get install -y \
     git \
     curl \
     nodejs \
-    npm\
-    libsqlite3-dev
+    npm \
+    libsqlite3-dev \
+    libpq-dev
 
-RUN docker-php-ext-install pdo pdo_mysql pdo_sqlite
+RUN docker-php-ext-install \
+    pdo \
+    pdo_mysql \
+    pdo_sqlite \
+    pdo_pgsql \
+    pgsql
 
 COPY . .
 
@@ -20,9 +26,8 @@ RUN composer install --no-dev --optimize-autoloader
 
 RUN npm install && npm run build
 
-RUN mkdir -p database && touch database/database.sqlite
-
 RUN php artisan storage:link
 
 EXPOSE 10000
+
 CMD php artisan config:clear && php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=${PORT:-10000}
