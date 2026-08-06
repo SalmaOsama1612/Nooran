@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
     nodejs \
     npm
 
-RUN docker-php-ext-install pdo pdo_mysql
+RUN docker-php-ext-install pdo pdo_mysql pdo_sqlite
 
 COPY . .
 
@@ -19,7 +19,12 @@ RUN composer install --no-dev --optimize-autoloader
 
 RUN npm install && npm run build
 
+RUN mkdir -p database && touch database/database.sqlite
+
+RUN php artisan migrate --force
+
 RUN php artisan storage:link
+
 EXPOSE 10000
 
 CMD php artisan serve --host=0.0.0.0 --port=${PORT:-10000}
