@@ -7,7 +7,8 @@ RUN apt-get update && apt-get install -y \
     git \
     curl \
     nodejs \
-    npm
+    npm\
+    libsqlite3-dev
 
 RUN docker-php-ext-install pdo pdo_mysql pdo_sqlite
 
