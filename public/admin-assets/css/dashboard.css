@@ -290,3 +290,32 @@ body {
 
 }
 
+.sidebar-menu a.active{
+    background:linear-gradient(135deg,#005260,#34b69e);
+    color:#fff;
+    border-radius:12px;
+}
+
+.sidebar-menu a.active i{
+    color:#fff;
+}
+
+.sidebar-menu a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    transition:.3s;
+}
+
+.sidebar-menu a:hover{
+    transform:scale(1.03);
+}
+
+.coming-soon{
+    margin-right:auto;
+    background:#f2b300;
+    color:#fff;
+    font-size:10px;
+    padding:2px 8px;
+    border-radius:20px;
+}
