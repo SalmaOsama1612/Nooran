@@ -42,18 +42,18 @@
 
 @include('partials.navbar')
 
-    <div id="loader">
-        <div class="loader-content">
-            <img src="{{ asset('images/logo.png') }}" alt="Nooran Logo">
+<div id="loader">
+    <div class="loader-content">
+        <img src="{{ asset('images/logo.png') }}" alt="Nooran Logo">
 
-            <div class="spinner"></div>
-        </div>
+        <div class="spinner"></div>
     </div>
+</div>
 
+<link rel="stylesheet" href="{{ asset('css/about.css') }}">
+<link rel="stylesheet" href="{{ asset('css/assembly.css') }}">
 
 @yield('content')
-
-
 
 @include('partials.footer')
 

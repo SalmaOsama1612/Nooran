@@ -563,238 +563,695 @@ body{
         grid-template-columns:1fr;
     }
 }
-/* Programs */
-.programs-page{
-    padding:80px 0;
-    background:#f7faf9;
-    direction:rtl;
+/* =========================================================
+   PROGRAMS SECTION
+========================================================= */
+
+.programs-section {
+
+    width: 100%;
+
+    padding: 90px 0;
+
+    background: #f7faf9;
+
+    direction: rtl;
+
 }
-.programs-page .section-title h2{
-    color:var(--primary);
-    font-size:36px;
-    font-weight:800;
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.programs-container {
+
+    width: 90%;
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: stretch;
+
+    gap: 70px;
+
 }
-.programs-page .section-title p{
-    color:#777;
-    margin-bottom:50px;
+
+
+/* =========================================================
+   LOGO SIDE
+========================================================= */
+
+.programs-logo-side {
+
+    width: 35%;
+
+    min-height: 560px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    direction: rtl;
+
 }
-.program-card{
-    background:#fff;
-    border-radius:20px;
-    padding:28px 24px;
-    width:100%;
-    height:350px;
-    display:flex;
-    flex-direction:column;
-    position:relative;
-    overflow:hidden;
-    border:1px solid #edf2f1;
-    box-shadow:0 8px 25px rgba(0,0,0,.05);
-    transition:.3s ease;
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.programs-logo-wrapper {
+
+    width: 280px;
+
+    height: 280px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 35px;
+
 }
-.program-card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 18px 40px rgba(0,0,0,.12);
+
+
+.programs-logo {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
 }
-.program-card::before{
-    content:"";
-    position:absolute;
-    top:0;
-    right:0;
-    width:100%;
-    height:4px;
-    background:linear-gradient(90deg,var(--primary),var(--secondary));
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.programs-intro {
+
+    max-width: 360px;
+
 }
-.program-icon{
-    width:55px;
-    height:55px;
-    border-radius:16px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:#e8f5f1;
-    color:var(--primary);
-    font-size:22px;
-    margin-bottom:15px;
+
+
+.programs-intro h2 {
+
+    color: var(--primary);
+
+    font-size: 34px;
+
+    font-weight: 800;
+
+    margin-bottom: 15px;
+
 }
-.program-card h3{
-    font-size:20px;
-    font-weight:800;
-    color:#123332;
-    margin-bottom:10px;
+
+
+.programs-intro p {
+
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 2;
+
+    margin: 0;
+
 }
-.program-card p{
-    color:#777;
-    font-size:14px;
-    line-height:1.8;
-    flex:1;
-    overflow:hidden;
+
+
+/* =========================================================
+   PROGRAMS LIST
+========================================================= */
+
+.programs-list {
+
+    width: 65%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    justify-content: center;
+
 }
-.program-btn{
-    width:max-content;
-    margin-top:auto;
-    border:none;
-    background:var(--primary);
-    color:white;
-    padding:9px 25px;
-    border-radius:30px;
-    transition:.3s ease;
+
+
+/* =========================================================
+   PROGRAM ITEM
+========================================================= */
+
+.program-item {
+
+    width: 100%;
+
+    min-height: 75px;
+
+    display: flex;
+
+    align-items: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border: 1px solid #edf2f1;
+
+    border-radius: 15px;
+
+    padding: 0 20px;
+
+    cursor: pointer;
+
+    transition:
+        min-height .45s ease,
+        box-shadow .35s ease,
+        transform .35s ease;
+
 }
-.program-btn:hover{
-    background:var(--secondary);
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.program-item:hover {
+
+    min-height: 175px;
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .08);
+
+    transform: translateX(-5px);
+
 }
-#programCarousel{
-    position:relative;
-    padding:0 55px;
+
+
+/* =========================================================
+   TOP LINE
+========================================================= */
+
+.program-item::before {
+
+    content: "";
+
+    position: absolute;
+
+    right: 0;
+
+    top: 0;
+
+    width: 4px;
+
+    height: 100%;
+
+    background: var(--primary);
+
+    transition: .35s ease;
+
 }
-.carousel-control-prev,
-.carousel-control-next{
-    width:38px;
-    height:38px;
-    top:50%;
-    transform:translateY(-50%);
-    background:var(--primary);
-    border-radius:50%;
-    opacity:1;
+
+
+.program-item:hover::before {
+
+    background: var(--secondary);
+
 }
-.carousel-control-prev:hover,
-.carousel-control-next:hover{
-    background:var(--secondary);
+
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+.program-number {
+
+    width: 55px;
+
+    min-width: 55px;
+
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: #e8f5f1;
+
+    color: var(--primary);
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    margin-left: 18px;
+
+    transition: .35s ease;
+
 }
-.carousel-control-prev-icon,
-.carousel-control-next-icon{
-    width:14px;
-    height:14px;
+
+
+.program-item:hover .program-number {
+
+    background: var(--secondary);
+
+    color: #ffffff;
+
 }
-@media(max-width:992px){
-    .programs-page{
-        padding:60px 0;
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.program-title {
+
+    width: 230px;
+
+    min-width: 230px;
+
+    transition: .35s ease;
+
+}
+
+
+.program-title span {
+
+    display: block;
+
+    color: var(--secondary);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    margin-bottom: 5px;
+
+}
+
+
+.program-title h3 {
+
+    margin: 0;
+
+    color: #123332;
+
+    font-size: 19px;
+
+    font-weight: 800;
+
+}
+
+
+/* =========================================================
+   DETAILS
+========================================================= */
+
+.program-details {
+
+    flex: 1;
+
+    max-height: 0;
+
+    opacity: 0;
+
+    overflow: hidden;
+
+    transform: translateX(25px);
+
+    transition:
+        max-height .45s ease,
+        opacity .35s ease,
+        transform .45s ease;
+
+}
+
+
+.program-item:hover .program-details {
+
+    max-height: 120px;
+
+    opacity: 1;
+
+    transform: translateX(0);
+
+}
+
+
+.program-details p {
+
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 1.9;
+
+    margin: 0;
+
+    padding-left: 20px;
+
+}
+
+
+/* =========================================================
+   ARROW
+========================================================= */
+
+.program-arrow {
+
+    width: 42px;
+
+    min-width: 42px;
+
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #e8f5f1;
+
+    color: var(--primary);
+
+    margin-right: 15px;
+
+    transition: .35s ease;
+
+}
+
+
+.program-item:hover .program-arrow {
+
+    background: var(--secondary);
+
+    color: #ffffff;
+
+}
+
+
+.program-item:hover .program-arrow i {
+
+    transform: translateX(-3px);
+
+}
+
+
+.program-arrow i {
+
+    transition: .3s ease;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 992px) {
+
+    .programs-container {
+
+        width: 92%;
+
+        gap: 35px;
+
     }
-    .program-card{
-        height:330px;
+
+
+    .programs-logo-side {
+
+        width: 30%;
+
     }
-    #programCarousel{
-        padding:0 35px;
+
+
+    .programs-logo-wrapper {
+
+        width: 210px;
+
+        height: 210px;
+
     }
-}
-@media(max-width:768px){
-    .programs-page .section-title h2{
-        font-size:30px;
+
+
+    .programs-intro h2 {
+
+        font-size: 28px;
+
     }
-    .program-card{
-        height:auto;
-        min-height:320px;
-        text-align:center;
-        align-items:center;
+
+
+    .programs-list {
+
+        width: 70%;
+
     }
-    #programCarousel{
-        padding:0 15px;
+
+
+    .program-title {
+
+        width: 180px;
+
+        min-width: 180px;
+
     }
-    .carousel-control-prev,
-    .carousel-control-next{
-        display:none;
+
+
+    .program-title h3 {
+
+        font-size: 17px;
+
     }
+
 }
-@media(max-width:576px){
-    .program-card{
-        padding:25px 18px;
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .programs-section {
+
+        padding: 65px 0;
+
     }
-    .program-card h3{
-        font-size:18px;
+
+
+    .programs-container {
+
+        width: 90%;
+
+        flex-direction: column;
+
+        gap: 45px;
+
     }
-    .program-card p{
-        font-size:13px;
+
+
+    .programs-logo-side {
+
+        width: 100%;
+
+        min-height: auto;
+
     }
-}
-/* Modal */
-.modal-content{
-    border:none;
-    border-radius:28px;
-    overflow:hidden;
-    box-shadow:0 25px 60px rgba(0,0,0,.18);
-    font-family:'Cairo',sans-serif;
-}
-.modal-header{
-    background:linear-gradient(135deg,var(--primary),var(--secondary));
-    padding:25px 30px;
-    border:none;
-}
-.modal-title{
-    color:#fff;
-    font-size:24px;
-    font-weight:800;
-}
-.modal-close{
-    width:35px;
-    height:35px;
-    border-radius:50%;
-    border:none;
-    background:rgba(255,255,255,.15);
-    color:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:18px;
-    cursor:pointer;
-    transition:.3s;
-}
-.modal-close:hover{
-    background:#fff;
-    color:var(--primary);
-    transform:rotate(90deg);
-}
-.modal-body{
-    padding:35px 40px;
-    color:#555;
-    line-height:2;
-}
-.modal-body h6{
-    display:inline-block;
-    background:#eaf7f3;
-    color:var(--secondary);
-    padding:6px 18px;
-    border-radius:25px;
-    font-size:14px;
-    font-weight:700;
-    margin-bottom:18px;
-}
-.modal-body p{
-    font-size:15px;
-    color:#666;
-    line-height:2;
-    margin-bottom:25px;
-}
-.modal-body hr{
-    border:none;
-    height:1px;
-    background:#eee;
-    margin:25px 0;
-}
-.modal-body h5{
-    color:var(--primary);
-    font-size:20px;
-    font-weight:800;
-    margin-bottom:18px;
-}
-.program-goals{
-    padding-right:20px;
-}
-.program-goals li{
-    color:#666;
-    font-size:15px;
-    margin-bottom:12px;
-    line-height:1.9;
-}
-.program-goals li::marker{
-    color:var(--secondary);
-}
-@media(max-width:768px){
-    .modal-body{
-        padding:25px;
+
+
+    .programs-logo-wrapper {
+
+        width: 180px;
+
+        height: 180px;
+
+        margin-bottom: 20px;
+
     }
-    .modal-title{
-        font-size:20px;
+
+
+    .programs-intro {
+
+        max-width: 500px;
+
     }
+
+
+    .programs-intro h2 {
+
+        font-size: 30px;
+
+    }
+
+
+    .programs-list {
+
+        width: 100%;
+
+    }
+
+
+    .program-item {
+
+        min-height: 70px;
+
+    }
+
+
+    .program-item:hover {
+
+        min-height: 190px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 576px) {
+
+    .programs-section {
+
+        padding: 50px 0;
+
+    }
+
+
+    .programs-container {
+
+        width: 92%;
+
+    }
+
+
+    .programs-logo-wrapper {
+
+        width: 150px;
+
+        height: 150px;
+
+    }
+
+
+    .programs-intro h2 {
+
+        font-size: 25px;
+
+    }
+
+
+    .programs-intro p {
+
+        font-size: 13px;
+
+    }
+
+
+    .program-item {
+
+        padding: 15px;
+
+        align-items: flex-start;
+
+        flex-wrap: wrap;
+
+    }
+
+
+    .program-number {
+
+        width: 42px;
+
+        min-width: 42px;
+
+        height: 42px;
+
+        font-size: 12px;
+
+        margin-left: 10px;
+
+    }
+
+
+    .program-title {
+
+        width: calc(100% - 55px);
+
+        min-width: auto;
+
+        padding-top: 5px;
+
+    }
+
+
+    .program-title h3 {
+
+        font-size: 16px;
+
+    }
+
+
+    .program-details {
+
+        width: 100%;
+
+        flex-basis: 100%;
+
+        margin-top: 15px;
+
+    }
+
+
+    .program-item:hover {
+
+        min-height: 190px;
+
+    }
+
+
+    .program-details p {
+
+        padding: 0;
+
+        font-size: 12px;
+
+    }
+
+
+    .program-arrow {
+
+        display: none;
+
+    }
+
 }
 /* Footer */
 .nooran-footer{
@@ -805,7 +1262,7 @@ body{
 }
 .footer-logo{
     width:250px;
-    background:#fff;
+    background:#ffffff46;
     padding:12px 18px;
     border-radius:15px;
     margin-bottom:20px;

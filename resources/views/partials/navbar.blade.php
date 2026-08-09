@@ -162,14 +162,10 @@
 
             <div class="nav-buttons">
 
-                <a href="#"
-                   class="login-btn">
-
-                    <i class="bi bi-person-fill"></i>
-
-                    تسجيل الدخول
-
-                </a>
+   <a href="{{ route('login') }}" class="login-btn">
+    <i class="bi bi-person-fill"></i>
+    تسجيل الدخول
+</a>
 
 
                 <a href="#"
