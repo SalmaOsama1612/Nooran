@@ -29,6 +29,10 @@ use App\Http\Controllers\Dashboard\GovernanceDocumentController;
 
 use App\Models\VolunteerOpportunity;
 
+Route::get('/health', function () {
+    return response()->json(['status' => 'ok']);
+});
+
 Route::get('/', [HomeController::class, 'index'])
     ->name('home');
 
