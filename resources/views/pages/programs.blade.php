@@ -1,184 +1,121 @@
 @extends('layouts.master')
 
-
 @section('content')
 
+<section class="programs-section">
 
-<section class="programs-page">
+    <div class="programs-container">
 
+        <div class="programs-image-side">
 
-<div class="container">
+            <div class="programs-image-box">
+                <img src="{{ asset('images/smallLogo.png') }}" alt="جمعية نوران التعليمية">
+            </div>
 
+            <div class="programs-heading">
+                <span>NOORAN ASSOCIATION</span>
+                <h2>برامجنا ومشاريعنا</h2>
+                <p>
+                    مجموعة من البرامج والمشاريع التعليمية التي تهدف إلى
+                    بناء مجتمع معرفي متعلم ومتمكن.
+                </p>
+            </div>
 
-<div class="section-title text-center">
+        </div>
 
-    <h2>
-        البرامج والمشاريع
-    </h2>
+        <div class="programs-content">
 
-    <p>
-        برامج تعليمية نوعية تسهم في بناء مجتمع معرفي متعلم وممكّن.
-    </p>
+            <div class="programs-list">
 
-</div>
+                @foreach($programs as $index => $program)
 
+                    <div class="program-strip"
+                         data-bs-toggle="modal"
+                         data-bs-target="#program{{ $program->id }}">
 
+                        <div class="program-strip-number">
+                            {{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}
+                        </div>
 
-<div class="row g-4">
+                        <div class="program-strip-text">
 
+                            <span>{{ $program->subtitle }}</span>
 
-@foreach($programs as $program)
+                            <h3>{{ $program->title }}</h3>
 
+                        </div>
 
-<div class="col-lg-4 col-md-6">
+                        <div class="program-strip-arrow">
+                            <i class="bi bi-arrow-left"></i>
+                        </div>
 
+                    </div>
 
-<div class="program-card">
+                @endforeach
 
+            </div>
 
-<div class="program-icon">
+        </div>
 
-    <i class="bi bi-mortarboard-fill"></i>
-
-</div>
-
-
-
-<span class="program-tag">
-    {{ $program->subtitle }}
-</span>
-
-
-
-<h3>
-    {{ $program->title }}
-</h3>
-
-
-
-<p>
-    {{ Str::limit($program->description,150) }}
-</p>
-
-
-
-
-<button 
-class="program-btn"
-data-bs-toggle="modal"
-data-bs-target="#program{{$program->id}}">
-
-
-اعرف المزيد
-
-</button>
-
-
-
-</div>
-
-
-</div>
-
-
-@endforeach
-
-
-</div>
-
-
-</div>
-
+    </div>
 
 </section>
 
-
-
-
-
-{{-- Modals --}}
-
 @foreach($programs as $program)
 
+<div class="modal fade program-modal"
+     id="program{{ $program->id }}"
+     tabindex="-1"
+     aria-hidden="true">
 
-<div class="modal fade"
-id="program{{$program->id}}"
-tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
 
+        <div class="modal-content">
 
-<div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-header">
 
+                <h5 class="modal-title">
+                    {{ $program->title }}
+                </h5>
 
-<div class="modal-content">
+                <button type="button"
+                        class="modal-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close">
 
+                    <i class="bi bi-x-lg"></i>
 
+                </button>
 
-<div class="modal-header">
+            </div>
 
-<button class="modal-close" data-bs-dismiss="modal">
-    <i class="bi bi-x-lg"></i>
-</button>
+            <div class="modal-body">
 
+                <span class="program-modal-subtitle">
+                    {{ $program->subtitle }}
+                </span>
 
-<h5 class="modal-title">
+                <p>
+                    {{ $program->description }}
+                </p>
 
-{{ $program->title }}
+                <div class="program-modal-divider"></div>
 
-</h5>
+                <h5>
+                    أهداف البرنامج
+                </h5>
 
+                <p>
+                    {!! nl2br(e($program->goals)) !!}
+                </p>
 
+            </div>
 
+        </div>
 
-
-</div>
-
-
-
-
-<div class="modal-body">
-
-
-
-<h6>
-{{ $program->subtitle }}
-</h6>
-
-
-
-<p>
-{{ $program->description }}
-</p>
-
-
-
-
-<hr>
-
-
-
-<h5>
-أهداف البرنامج
-</h5>
-
-
-
-<p>
-{!! nl2br(e($program->goals)) !!}
-</p>
-
-
+    </div>
 
 </div>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
 
 @endforeach
 

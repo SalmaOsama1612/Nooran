@@ -1,0 +1,489 @@
+
+.volunteer-section {
+    padding: 90px 0;
+    background: #f6faf8;
+    direction: rtl;
+    min-height: 70vh;
+}
+
+.volunteer-container {
+    width: 92%;
+    max-width: 1050px;
+    margin: auto;
+}
+
+.volunteer-card {
+    background: #fff;
+    border-radius: 28px;
+    padding: 55px;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 65px;
+    align-items: center;
+    box-shadow: 0 18px 55px rgba(0,82,96,.09);
+    border: 1px solid #edf4f1;
+}
+
+.volunteer-brand {
+    text-align: center;
+    padding-left: 45px;
+    border-left: 1px solid #e7efec;
+}
+
+.volunteer-logo {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.volunteer-logo-placeholder {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e8f5f1;
+    color: var(--primary);
+    font-size: 55px;
+}
+
+.volunteer-brand h2 {
+    margin: 0 0 10px;
+    color: #123f3a;
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.volunteer-brand p {
+    margin: 0;
+    color: #9a7b45;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.volunteer-content h1 {
+    margin: 0 0 25px;
+    color: #172b29;
+    font-size: 34px;
+    line-height: 1.5;
+    font-weight: 800;
+}
+
+.volunteer-date {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #687875;
+    font-size: 15px;
+    margin-bottom: 35px;
+}
+
+.volunteer-date i {
+    color: var(--secondary);
+    font-size: 18px;
+}
+
+.volunteer-progress-box {
+    position: relative;
+    margin-bottom: 35px;
+}
+
+.volunteer-progress-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.volunteer-progress-info span {
+    color: #687875;
+    font-size: 14px;
+}
+
+.volunteer-progress-info strong {
+    color: #234d47;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.volunteer-progress {
+    width: 100%;
+    height: 12px;
+    background: #e8efed;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.volunteer-progress-bar {
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        #34b69e,
+        #008f7a
+    );
+    border-radius: 20px;
+    transition: width .6s ease;
+}
+
+.volunteer-progress-percent {
+    display: block;
+    margin-top: 8px;
+    color: #7b8986;
+    font-size: 11px;
+    text-align: left;
+}
+
+.volunteer-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.volunteer-main-btn,
+.volunteer-women-btn {
+    min-height: 55px;
+    padding: 0 28px;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 800;
+    transition: .25s ease;
+}
+
+.volunteer-main-btn {
+    background: var(--primary);
+    color: #fff;
+}
+
+.volunteer-main-btn:hover {
+    background: #003d47;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.volunteer-women-btn {
+    background: #e9f6f2;
+    color: var(--primary);
+    border: 1px solid #cce9e1;
+}
+
+.volunteer-women-btn:hover {
+    background: #dcefe9;
+    transform: translateY(-2px);
+}
+
+.volunteer-info-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #edf0ef;
+    color: #77817f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.volunteer-empty {
+    background: #fff;
+    border-radius: 28px;
+    padding: 80px 30px;
+    text-align: center;
+    box-shadow: 0 15px 45px rgba(0,82,96,.07);
+}
+
+.volunteer-empty-icon {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin: 0 auto 25px;
+    background: #e8f5f1;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 38px;
+}
+
+.volunteer-empty h2 {
+    margin: 0 0 12px;
+    color: #17413c;
+    font-size: 25px;
+}
+
+.volunteer-empty p {
+    margin: 0;
+    color: #7c8986;
+}
+
+.women-volunteer-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.women-volunteer-modal.active {
+    display: flex;
+}
+
+.women-volunteer-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10,35,32,.6);
+    backdrop-filter: blur(4px);
+}
+
+.women-volunteer-box {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 650px;
+    max-height: 92vh;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 25px;
+    padding: 40px;
+    box-shadow: 0 25px 80px rgba(0,0,0,.2);
+    animation: volunteerModalIn .25s ease;
+}
+
+@keyframes volunteerModalIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.women-volunteer-close {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 50%;
+    background: #f1f5f3;
+    color: #63706d;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.women-volunteer-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.women-volunteer-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: #e8f5f1;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.women-volunteer-header h2 {
+    margin: 0 0 8px;
+    color: #173f3a;
+    font-size: 27px;
+    font-weight: 800;
+}
+
+.women-volunteer-header p {
+    margin: 0;
+    color: #7d8986;
+    font-size: 14px;
+}
+
+.women-volunteer-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.women-form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.women-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.women-form-group label {
+    color: #294944;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.women-form-group input,
+.women-form-group select,
+.women-form-group textarea {
+    width: 100%;
+    border: 1px solid #dfe9e5;
+    border-radius: 12px;
+    background: #fafcfb;
+    color: #263e3a;
+    padding: 13px 15px;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: .2s ease;
+    box-sizing: border-box;
+}
+
+.women-form-group input:focus,
+.women-form-group select:focus,
+.women-form-group textarea:focus {
+    border-color: var(--secondary);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(52,182,158,.1);
+}
+
+.women-form-group textarea {
+    resize: vertical;
+}
+
+.women-gender-error {
+    display: none;
+    color: #c0392b;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.women-gender-error.show {
+    display: block;
+}
+
+.women-submit-btn {
+    width: 100%;
+    min-height: 52px;
+    border: none;
+    border-radius: 13px;
+    background: var(--primary);
+    color: #fff;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: .25s ease;
+}
+
+.women-submit-btn:hover:not(:disabled) {
+    background: #003d47;
+}
+
+.women-submit-btn:disabled {
+    opacity: .45;
+    cursor: not-allowed;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+@media (max-width: 900px) {
+
+    .volunteer-card {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 40px;
+    }
+
+    .volunteer-brand {
+        padding-left: 0;
+        padding-bottom: 35px;
+        border-left: none;
+        border-bottom: 1px solid #e7efec;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .volunteer-section {
+        padding: 60px 0;
+    }
+
+    .volunteer-container {
+        width: 94%;
+    }
+
+    .volunteer-card {
+        padding: 30px 20px;
+        border-radius: 22px;
+    }
+
+    .volunteer-content h1 {
+        font-size: 26px;
+    }
+
+    .volunteer-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .volunteer-main-btn,
+    .volunteer-women-btn {
+        width: 100%;
+    }
+
+    .volunteer-info-icon {
+        margin: auto;
+    }
+
+    .women-volunteer-box {
+        padding: 35px 20px 25px;
+    }
+
+    .women-form-row {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 400px) {
+
+    .volunteer-logo,
+    .volunteer-logo-placeholder {
+        width: 125px;
+        height: 125px;
+    }
+
+    .volunteer-brand h2 {
+        font-size: 20px;
+    }
+
+    .volunteer-content h1 {
+        font-size: 23px;
+    }
+
+}

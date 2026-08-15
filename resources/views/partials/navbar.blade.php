@@ -142,19 +142,62 @@
 
                 </li>
 
+<li class="nav-item dropdown">
 
-                <!-- الحوكمة -->
+    <a
+        class="nav-link dropdown-toggle"
+        href="#"
+        id="governanceDropdown"
+        role="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+    >
+        الحوكمة
+    </a>
 
-                <li class="nav-item">
+    <ul
+        class="dropdown-menu governance-dropdown"
+        aria-labelledby="governanceDropdown"
+    >
 
-                    <a class="nav-link {{request()->routeIs('governance') ? 'active' : ''}}"
-                       href="{{route('governance')}}">
+        @php
+            $governanceDocuments = \App\Models\GovernanceDocument::where(
+                'is_active',
+                true
+            )->latest()->get();
+        @endphp
 
-                        الحوكمة
+        @forelse($governanceDocuments as $document)
 
-                    </a>
+            <li>
+                <a
+                    class="dropdown-item governance-dropdown-item"
+                    href="{{ asset('storage/' . $document->file_path) }}"
+                    target="_blank"
+                >
+                    <i class="fa-solid fa-file-pdf"></i>
 
-                </li>
+                    <span>
+                        {{ $document->title }}
+                    </span>
+                </a>
+            </li>
+
+        @empty
+
+            <li>
+                <span class="dropdown-item governance-empty-item">
+                    لا توجد مستندات حاليًا
+                </span>
+            </li>
+
+        @endforelse
+
+    </ul>
+
+</li>
+
+
 
 
             </ul>
