@@ -9,25 +9,31 @@ RUN apt-get update && apt-get install -y \
     nodejs \
     npm \
     libsqlite3-dev \
-    libpq-dev
-
-RUN docker-php-ext-install \
+    libpq-dev \
+    && docker-php-ext-install \
     pdo \
     pdo_mysql \
     pdo_sqlite \
     pdo_pgsql \
-    pgsql
-
-COPY . .
+    pgsql \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-RUN composer install --no-dev --optimize-autoloader
+COPY composer.json composer.lock ./
 
-RUN npm install && npm run build
+RUN composer install --no-dev --optimize-autoloader --no-interaction
 
-RUN php artisan storage:link
+COPY package.json package-lock.json ./
+
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+RUN php artisan config:clear
 
 EXPOSE 10000
 
-CMD php artisan config:clear && php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=${PORT:-10000}
+CMD php artisan serve --host=0.0.0.0 --port=${PORT:-10000}
