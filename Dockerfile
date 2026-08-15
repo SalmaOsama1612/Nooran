@@ -20,17 +20,11 @@ RUN apt-get update && apt-get install -y \
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-COPY composer.json composer.lock ./
+COPY . .
 
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
-COPY package.json package-lock.json ./
-
-RUN npm install
-
-COPY . .
-
-RUN npm run build
+RUN npm install && npm run build
 
 RUN php artisan config:clear
 
